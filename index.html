@@ -391,61 +391,70 @@
     text-align: center;
   }
 
-  .pricing-inner { max-width: 900px; margin: 0 auto; }
+  .pricing-inner { max-width: 560px; margin: 0 auto; }
 
-  .pricing-grid {
-    display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 2px; margin-top: 56px;
+  .pricing-solo {
+    margin-top: 56px;
+    position: relative;
   }
 
   .price-card {
-    background: var(--bg); border: 1px solid var(--mid);
-    padding: 40px 32px;
-    position: relative; transition: transform .2s;
+    background: var(--bg);
+    border: 2px solid var(--cyan);
+    background: rgba(0,229,204,.03);
+    padding: 56px 48px;
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: start;
   }
-  .price-card:hover { transform: translateY(-6px); }
-  .price-card.featured {
-    border-color: var(--cyan);
-    background: rgba(0,229,204,.04);
+
+  .price-card::before {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0; height: 3px;
+    background: linear-gradient(90deg, var(--cyan), var(--yellow), var(--red));
   }
+
   .price-badge {
-    position: absolute; top: -12px; left: 50%; transform: translateX(-50%);
+    position: absolute; top: -14px; left: 48px;
     background: var(--cyan); color: var(--bg);
     font-size: 10px; letter-spacing: 2px; padding: 4px 16px;
     font-weight: 700; white-space: nowrap;
   }
 
-  .price-tier { font-size: 10px; letter-spacing: 3px; color: var(--muted); margin-bottom: 16px; }
+  .price-left { display: flex; flex-direction: column; }
+  .price-tier { font-size: 10px; letter-spacing: 3px; color: var(--muted); margin-bottom: 20px; }
   .price-val {
-    font-family: 'VT323', monospace; font-size: 72px; line-height: 1;
-    color: var(--white);
+    font-family: 'VT323', monospace; font-size: 96px; line-height: 1;
+    color: var(--white); letter-spacing: -2px;
   }
-  .price-val sup { font-size: 32px; vertical-align: top; margin-top: 12px; }
-  .price-desc { font-size: 11px; color: var(--muted); margin-top: 12px; line-height: 1.8; }
-  .price-features { list-style: none; margin-top: 24px; text-align: left; }
+  .price-val .rp { font-size: 44px; vertical-align: top; margin-top: 14px; display: inline-block; color: var(--cyan); }
+  .price-val .unit { font-size: 44px; color: var(--muted); }
+  .price-desc { font-size: 11px; color: var(--muted); margin-top: 16px; line-height: 1.9; }
+
+  .price-right { display: flex; flex-direction: column; justify-content: space-between; }
+  .price-features { list-style: none; }
   .price-features li {
-    font-size: 11px; color: var(--muted); padding: 7px 0;
+    font-size: 11px; color: var(--muted); padding: 9px 0;
     border-bottom: 1px solid var(--mid);
     display: flex; gap: 10px; align-items: center;
   }
-  .price-features li::before {
-    content: '▸'; color: var(--cyan); flex-shrink: 0;
-  }
-  .price-card:nth-child(1) .price-features li::before { color: var(--muted); }
-  .price-card:nth-child(3) .price-features li::before { color: var(--yellow); }
+  .price-features li::before { content: '▸'; color: var(--cyan); flex-shrink: 0; }
 
   .price-btn {
     display: block; width: 100%; margin-top: 28px;
-    font-family: 'VT323', monospace; font-size: 24px;
-    background: transparent; border: 2px solid var(--mid);
-    color: var(--white); padding: 10px; cursor: pointer;
+    font-family: 'VT323', monospace; font-size: 28px;
+    background: var(--cyan); border: 2px solid var(--cyan);
+    color: var(--bg); padding: 14px; cursor: pointer;
     letter-spacing: 1px; transition: all .15s; text-decoration: none;
+    text-align: center;
   }
-  .price-btn:hover { border-color: var(--cyan); color: var(--cyan); }
-  .price-card.featured .price-btn {
-    background: var(--cyan); border-color: var(--cyan); color: var(--bg);
+  .price-btn:hover { background: var(--yellow); border-color: var(--yellow); }
+
+  @media (max-width: 640px) {
+    .price-card { grid-template-columns: 1fr; padding: 40px 24px; gap: 24px; }
   }
-  .price-card.featured .price-btn:hover { background: var(--yellow); border-color: var(--yellow); }
 
   /* ── SOCIAL PROOF ── */
   #reviews {
@@ -577,7 +586,7 @@
   </p>
 
   <div class="hero-ctas">
-    <a href="#pricing" class="btn-primary">▶ GET YOURS — $69</a>
+    <a href="#pricing" class="btn-primary">▶ GET YOURS — Rp199k</a>
     <a href="#how" class="btn-ghost">see how it works</a>
   </div>
 
@@ -715,13 +724,11 @@
   <div class="section-label">// TECH SPECS</div>
   <h2 class="section-title">what's<br><span>inside the box</span></h2>
   <div class="specs-grid">
-    <div class="spec-row"><span class="spec-key">Display</span><span class="spec-val">2.4" IPS LCD</span></div>
-    <div class="spec-row"><span class="spec-key">Resolution</span><span class="spec-val">240 × 320 px</span></div>
-    <div class="spec-row"><span class="spec-key">Refresh rate</span><span class="spec-val">30 FPS</span></div>
+    <div class="spec-row"><span class="spec-key">Display</span><span class="spec-val">1.3" IPS LCD</span></div>
+    <div class="spec-row"><span class="spec-key">Resolution</span><span class="spec-val">240 × 240 px</span></div>
     <div class="spec-row"><span class="spec-key">Connection</span><span class="spec-val">USB-C</span></div>
-    <div class="spec-row"><span class="spec-key">Storage</span><span class="spec-val">8 GB built-in</span></div>
-    <div class="spec-row"><span class="spec-key">Power draw</span><span class="spec-val">2.5W max</span></div>
-    <div class="spec-row"><span class="spec-key">Formats</span><span class="spec-val">GIF, WEBP, MP4</span></div>
+    <div class="spec-row"><span class="spec-key">Storage</span><span class="spec-val">Up to 3 GIFs</span></div>
+    <div class="spec-row"><span class="spec-key">Formats</span><span class="spec-val">GIF</span></div>
     <div class="spec-row"><span class="spec-key">Dimensions</span><span class="spec-val">85 × 68 × 42mm</span></div>
   </div>
 </section>
@@ -730,44 +737,24 @@
 <section id="pricing">
   <div class="pricing-inner">
     <div class="section-label">// PRICING</div>
-    <h2 class="section-title">pick your <span style="color:var(--cyan)">drop</span></h2>
-    <div class="pricing-grid">
+    <h2 class="section-title">one price.<br><span style="color:var(--cyan)">no drama.</span></h2>
+    <div class="pricing-solo">
       <div class="price-card">
-        <div class="price-tier">EARLY BIRD</div>
-        <div class="price-val"><sup>$</sup>49</div>
-        <p class="price-desc">First 50 units only.<br>Limited. No restock at this price.</p>
-        <ul class="price-features">
-          <li>debox unit</li>
-          <li>USB-C cable included</li>
-          <li>Quick start guide</li>
-        </ul>
-        <a href="#" class="price-btn">▶ GRAB EARLY BIRD</a>
-      </div>
-      <div class="price-card featured">
-        <div class="price-badge">MOST POPULAR</div>
-        <div class="price-tier">STANDARD</div>
-        <div class="price-val"><sup>$</sup>69</div>
-        <p class="price-desc">The full debox experience.<br>Ships in 5–7 business days.</p>
-        <ul class="price-features">
-          <li>debox unit</li>
-          <li>USB-C cable included</li>
-          <li>5 starter GIF pack</li>
-          <li>Sticker sheet</li>
-        </ul>
-        <a href="#" class="price-btn">▶ ORDER STANDARD</a>
-      </div>
-      <div class="price-card">
-        <div class="price-tier">LIMITED EDITION</div>
-        <div class="price-val"><sup>$</sup>89</div>
-        <p class="price-desc">Special colourway drop.<br>Numbered. Collector-ready.</p>
-        <ul class="price-features">
-          <li>debox unit (special colourway)</li>
-          <li>USB-C braided cable</li>
-          <li>20 curated GIF pack</li>
-          <li>Numbered certificate</li>
-          <li>Exclusive sticker sheet</li>
-        </ul>
-        <a href="#" class="price-btn">▶ GET LIMITED ED.</a>
+        <div class="price-badge">FREE SHIPPING — INDONESIA</div>
+        <div class="price-left">
+          <div class="price-tier">STANDARD</div>
+          <div class="price-val"><span class="rp">Rp</span>199<span class="unit">k</span></div>
+          <p class="price-desc">The full debox experience.<br>Ships in 5–7 business days.</p>
+        </div>
+        <div class="price-right">
+          <ul class="price-features">
+            <li>debox unit</li>
+            <li>USB-C cable included</li>
+            <li>5 starter GIF pack</li>
+            <li>Sticker sheet</li>
+          </ul>
+          <a href="#" class="price-btn">▶ ORDER NOW</a>
+        </div>
       </div>
     </div>
   </div>
@@ -805,8 +792,8 @@
   </h2>
   <p class="cta-sub">limited units — early bird price won't last long</p>
   <div class="cta-btns">
-    <a href="#pricing" class="btn-primary">▶ ORDER NOW — $69</a>
-    <a href="https://instagram.com/deboxhq" class="btn-ghost">follow @deboxhq</a>
+    <a href="#pricing" class="btn-primary">▶ ORDER NOW — Rp199k</a>
+    <a href="https://instagram.com/getdebox" class="btn-ghost">follow @getdebox</a>
   </div>
 </section>
 
